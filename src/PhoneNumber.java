@@ -6,10 +6,13 @@ import java.util.regex.Pattern;
 
 public class PhoneNumber {
     public static void main(String[] args) {
+        boolean quitCondition;
+        boolean areaCode;
 
-
+        quitCondition = false;
         Scanner input = new Scanner(System.in);
-        while (true) {
+
+        while (!quitCondition) {
              String phoneNumber = input.next();
             //https://stackoverflow.com/questions/22835472/how-can-i-check-if-a-user-entered-string-matches-a-specific-format
             Pattern format1 = Pattern.compile("\\d{3}-\\d{3}-\\d{4}");
@@ -21,10 +24,13 @@ public class PhoneNumber {
 
             if (matcher1.matches() || matcher2.matches()) {
                 System.out.println("Pattern Match");
-                break;
+                quitCondition = true;
+                areaCode = true;
+
             } else if (matcher3.matches()) {
                 System.out.println("Matches, but you will need to provide an area code for lookup.");
-                break;
+                quitCondition = true;
+                areaCode = false;
             } else {
                 System.out.println("Nope, doofus.");
             }
