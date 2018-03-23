@@ -57,10 +57,10 @@ public class PhoneNumber {
         areaLookupConfirm = input.next();
 
         if(areaLookupConfirm.equalsIgnoreCase("y")){
-            if(areaCode == true)
+            if(areaCode)
                 phoneLocation = areaCodeLookup(areaCodeNumber);
 
-            else if (areaCode == false){
+            else if (!areaCode){
                 System.out.print("Please enter the area code associated with this number: ");
                 areaCodeNumber = input.nextInt();
                 phoneLocation = areaCodeLookup(areaCodeNumber);
@@ -669,7 +669,8 @@ public class PhoneNumber {
                 return "Louisiana";
             case 989:
                 return "Michigan";
+            default:
+                return "a location not in our database. Sorry!";
         }
-        throw new IllegalArgumentException("The area code " + areaCode + " is not valid.");
     }
 }
