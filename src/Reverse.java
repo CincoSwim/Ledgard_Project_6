@@ -3,10 +3,11 @@ import java.util.Scanner;
 public class Reverse {
     public static void main(String[] args) {
         int index;
-        String inputString = "73 95 61 21 90 85 14 78";
+        String inputString;
         String arrayElement;
 
         arrayElement = "";
+        index = 0;
 
         Scanner input;
         input = new Scanner(System.in);
@@ -14,11 +15,14 @@ public class Reverse {
         int[] A;
         A = new int[8];
 
-        index = 0;
+        System.out.print("Please enter 8 positive integers: ");
+        inputString = input.nextLine();
+
+        //Parses numbers in inputString, then makes them elements in the array.
         for (int j = 0; j <= inputString.length() - 1; j++) {
             if (Character.isDigit(inputString.charAt(j))) {
                 arrayElement += inputString.charAt(j);
-            } else{
+            } else {
                 A[index] = Integer.parseInt(arrayElement);
                 arrayElement = "";
                 index++;
@@ -26,11 +30,22 @@ public class Reverse {
             }
 
         }
+        A[index] = Integer.parseInt(arrayElement);
 
-        System.out.println(A[1]);
-        System.out.println(A[2]);
-        System.out.println(A[3]);
-        System.out.println(A[4]);
+        reverse(A);
 
+    }
+
+    public static void reverse(int[] A) {
+        int sum;
+        sum = 0;
+
+        System.out.println("The values in reverse order are");
+        for (int i = 7; i >= 0; i--) {
+            System.out.print("     " + A[i]);
+            sum += A[i];
+        }
+        System.out.println();
+        System.out.println("The average is " + sum + "/8 = " + (float) sum / 8);
     }
 }
