@@ -1,5 +1,11 @@
 import java.util.Scanner;
-
+/*
+  EECS 1510 Object-Oriented Programming
+  Project 6 Part 4
+  Written by Christopher Pucko
+  Takes an input of a single line or sentence. It then prints the number of letters, number of string tokens,
+  number of numbers, and the frequency of each letter.
+*/
 public class ScanningText {
     public static void main(String[] args) {
         String textLine;
@@ -25,7 +31,7 @@ public class ScanningText {
         charCount = textLine.length();
 
         for (int i = 0; i < textLine.length(); i++) {
-            //System.out.println(Character.getNumericValue(textLine.charAt(i)) + " " + textLine.charAt(i));
+        //counts the number of each letter in the line, or changes the number of string tokens.
             charValue = Character.getNumericValue(textLine.charAt(i));
             if ((charValue < 10) && (charValue != -1)){
                 numberCount++;

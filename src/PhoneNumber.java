@@ -1,6 +1,14 @@
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+/*
+  EECS 1510 Object-Oriented Programming
+  Project 6 Part 1
+  Written by Christopher Pucko
+
+  Asks for a phone number input, and checks if that input matches any known phone number permutations.
+  If it is, it can then search for what state the area code is in, through a simple (albeit rough) process.
+*/
 
 public class PhoneNumber {
     public static void main(String[] args) {
@@ -52,37 +60,32 @@ public class PhoneNumber {
 
 
         }
-        areaCodeNumber = ( phoneDigits/ 10000000);
+        areaCodeNumber = (phoneDigits / 10000000);
         System.out.println("Would you like to lookup this area code? (Y/N): ");
         areaLookupConfirm = input.next();
 
-        if(areaLookupConfirm.equalsIgnoreCase("y")){
-            if(areaCode)
+        if (areaLookupConfirm.equalsIgnoreCase("y")) {
+            if (areaCode)
                 phoneLocation = areaCodeLookup(areaCodeNumber);
 
-            else if (!areaCode){
+            else if (!areaCode) {
                 System.out.print("Please enter the area code associated with this number: ");
                 areaCodeNumber = input.nextInt();
                 phoneLocation = areaCodeLookup(areaCodeNumber);
             }
             System.out.println("This phone number is from " + phoneLocation + ".");
-        }
-        else{
+        } else {
             System.out.println("Ok! See you next time!");
             System.exit(0);
         }
 
 
-        //Get back to this after making the string parser.
-        /*Map<String, String> map = new HashMap<String, String>();
-
-        map.put("dog", "is an animal");
-
-        System.out.println(map.get("dog"));*/
     }
-    public static String areaCodeLookup(long areaCode){
-        switch ((int) areaCode)
-        {
+
+    public static String areaCodeLookup(long areaCode) {
+        //uses area code given by phone number to find state.
+        //might not be the most elegant solution, but it does it.
+        switch ((int) areaCode) {
             case 201:
                 return "New Jersey";
             case 202:

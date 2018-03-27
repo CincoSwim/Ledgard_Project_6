@@ -1,4 +1,13 @@
 import java.util.Scanner;
+/*
+  EECS 1510 Object-Oriented Programming
+  Project 6 Part 3
+  Written by Christopher Pucko
+
+  Takes in a line with 8 intergers.
+  It then places them in an array, and prints them in reverse order. It then prints the average of these terms.
+
+*/
 
 public class Reverse {
     public static void main(String[] args) {
@@ -37,6 +46,7 @@ public class Reverse {
     }
 
     public static void reverse(int[] A) {
+    //Prints the reverse of the array created from the input, then finds the average.
         int sum;
         sum = 0;
 

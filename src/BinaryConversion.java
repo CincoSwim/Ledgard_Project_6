@@ -1,5 +1,13 @@
 import java.util.Scanner;
 
+/*
+  EECS 1510 Object-Oriented Programming
+  Project 6 Part 2
+  Written by Christopher Pucko
+  Prompts a user to enter a binary number string. If a binary string is entered, it is then converted to
+  a decimal number. If it is not a binary number, the user is prompted again. If "-1" is entered, the program ends.
+*/
+
 public class BinaryConversion {
     public static void main(String[] args) {
         String binaryString;
@@ -25,6 +33,7 @@ public class BinaryConversion {
     }
 
     public static int binaryToDecimal(String binaryString) {
+    //Takes the binary string entered and converts it to decimal, returning the decimal amount.
         int decimalNumber;
         int exponent;
         double numberAdded;
